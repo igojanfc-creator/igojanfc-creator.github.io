@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moja strona z obrazkiem</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 16px;
+      margin: 10px 0;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    #czas {
+      font-size: 1.5em;
+      margin-top: 15px;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+<body>
+  <!-- Główne zdjęcie -->
+  <img src="https://imgur.com/a/qOFqnkk" alt="Główne zdjęcie" />
+
+  <!-- Data i godzina -->
+  <div id="czas"></div>
+
+  <script>
+    function aktualizujCzas() {
+      const teraz = new Date();
+      const opcje = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit' 
+      };
+      document.getElementById("czas").textContent = teraz.toLocaleString("pl-PL", opcje);
+    }
+
+    aktualizujCzas();
+    setInterval(aktualizujCzas, 1000);
+  </script>
+</body>
+</html>
